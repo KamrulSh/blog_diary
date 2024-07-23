@@ -8,3 +8,7 @@
 
 ### Rollback migration
 - `rails db:rollback`
+
+### Add timestamp to article
+- `rails generate migration add_timestamps_to_articles`
+- `rails db:migrate`
