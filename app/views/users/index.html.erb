@@ -7,6 +7,8 @@
       <th>Username</th>
       <th>Email</th>
       <th colspan="2">Action</th>
+      <th>Article Count</th>
+      <th>Joined</th>
     </tr>
   </thead>
   <tbody>
@@ -14,10 +16,12 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.id %></td>
-          <td><%= user.username %></td>
+          <td><%= link_to user.username, user %></td>
           <td><%= user.email %></td>
           <td><%= link_to "Show", user_path(user) %></td>
           <td><%= link_to "Edit", edit_user_path(user) %></td>
+          <td><%= pluralize(user.articles.count, "articles") %></td>
+          <td><%= time_ago_in_words(user.created_at) %></td>
         </tr>
       <% end %>
     <% else %>
