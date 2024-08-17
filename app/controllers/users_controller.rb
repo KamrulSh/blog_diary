@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @articles = @user.articles
     if @user.nil?
       flash[:alert] = "User not found"
       redirect_to users_path
