@@ -9,6 +9,8 @@
   <p>User not found</p>
 <% end %>
 
+<%= button_to 'Edit user', edit_user_path, method: :get %>
+
 <h1><%= @user.username %>'s Article </h1>
 
 <%= render 'articles/article' %>
