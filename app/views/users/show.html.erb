@@ -1,5 +1,4 @@
 <h1>Showing user details</h1>
-
 <% if @user %>
   <p> <%= gravatar_for @user %> </p>
   <p>ID: <%= @user.id %></p>
@@ -8,11 +7,9 @@
 <% else %>
   <p>User not found</p>
 <% end %>
-
-<%= button_to 'Edit user', edit_user_path, method: :get %>
-
+<%if logged_in? && @user == current_user%>
+  <%= button_to 'Edit user', edit_user_path, method: :get %>
+<%end%>
 <h1><%= @user.username %>'s Article </h1>
-
 <%= render 'articles/article' %>
-
 <%= link_to 'Back to Articles', articles_path %>
