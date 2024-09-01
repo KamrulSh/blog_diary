@@ -7,6 +7,7 @@
     <a href="/about">About</a>
     <% if logged_in? %>
       <%= link_to current_user.username, user_path(current_user) %>
+      <%= button_to "Delete me", user_path(current_user), method: :delete %>
       <%= button_to "Logout", logout_path, method: :delete %>
     <% else %>
       <%= link_to "Login", login_path %>
