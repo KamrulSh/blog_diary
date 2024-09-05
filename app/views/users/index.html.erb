@@ -20,8 +20,11 @@
           <td><%= pluralize(user.articles.count, "articles") %></td>
           <td><%= time_ago_in_words(user.created_at) %></td>
           <td><%= link_to "Show", user_path(user) %></td>
-          <% if logged_in? && user == current_user %>
+          <% if logged_in? && (user == current_user || current_user.admin?) %>
             <td><%= link_to "Edit", edit_user_path(user) %></td>
+          <% end %>
+          <% if logged_in? && current_user.admin? %>
+            <td><%= link_to 'Delete', user_path(user), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>

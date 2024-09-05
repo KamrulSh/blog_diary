@@ -7,7 +7,7 @@
 <% else %>
   <p>User not found</p>
 <% end %>
-<%if logged_in? && @user == current_user%>
+<%if logged_in? && (@user == current_user || current_user.admin?) %>
   <%= button_to 'Edit user', edit_user_path, method: :get %>
 <%end%>
 <h1><%= @user.username %>'s Article </h1>

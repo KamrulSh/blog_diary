@@ -6,7 +6,7 @@
     <a href="/users">Users</a>
     <a href="/about">About</a>
     <% if logged_in? %>
-      <%= link_to current_user.username, user_path(current_user) %>
+      <%= link_to current_user.username, user_path(current_user) %><%= "(Admin)" if current_user.admin? %>
       <%= button_to "Delete me", user_path(current_user), method: :delete %>
       <%= button_to "Logout", logout_path, method: :delete %>
     <% else %>
