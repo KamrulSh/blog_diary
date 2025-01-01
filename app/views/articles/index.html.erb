@@ -1,6 +1,6 @@
+<% if logged_in? %>
+  <%= link_to 'Create New Article', new_article_path, data: { turbo_frame: "second_turbo_frame" } %>
+<%end%>
 <h1>Article list</h1>
 <%= will_paginate @articles %>
 <%= render 'article' %>
-<% if logged_in? %>
-  <%= link_to 'Create New Article', new_article_path %>
-<%end%>
